@@ -1,0 +1,22 @@
+# Local inventory, state, credentials, and exports stay outside Git.
+.local/
+.env
+.env.*
+!.env.example
+*.secrets.env
+*.key
+*.pem
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.tfstate*
+kubeconfig
+state/
+data/
+backups/
+*.db
+*.sqlite*
+*.log
+__pycache__/
+tmp/

@@ -1,0 +1,16 @@
+services:
+  openbao:
+    image: ghcr.io/openbao/openbao:2.7.2@sha256:5046911075e137e154ce49ab051502f4ec7cf367d484ae4a4dce665d9b90561f
+    restart: "no"
+    ports:
+      - "127.0.0.1:8200:8200"
+    environment:
+      BAO_UI: "true"
+      BAO_DEV_ROOT_TOKEN_ID: ${BAO_DEV_ROOT_TOKEN_ID:?Use scripts/lab.sh start}
+    command:
+      - server
+      - -dev
+      - -dev-listen-address=0.0.0.0:8200
+      - -dev-no-store-token
+    security_opt:
+      - no-new-privileges:true
